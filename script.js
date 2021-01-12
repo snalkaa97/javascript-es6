@@ -1,31 +1,31 @@
-//function declaration
-// const methodmahasiswa = {
-// 	makan: function (porsi) {
-// 		this.energi += porsi;
-// 		console.log(`Halo ${this.name} energi ${this.energi}`);
-// 	},
-// 	tidur: function (jam) {
-// 		this.energi += jam * 2;
-// 	},
-// };
+//2.1 EXECUTION CONTEXT, HOISTING & SCOPE
 
-// function Mahasiswa(nama, energi) {
-// 	let mahasiswa = Object.create(methodmahasiswa);
-// 	mahasiswa.nama = nama;
-// 	mahasiswa.energi = energi;
+//creation phase pada global context
+//nama var = undifined
+// function = fn()
+//window = global object
+//this = window
 
-// 	return mahasiswa;
+//execution phase
+// console.log(sayHello());
+// var nama = "alka";
+// var umur = 23;
+
+// function sayHello() {
+// 	console.log(`Hello, nama saya ${nama}, saya ${umur} tahun`);
 // }
 
-//PROTOTYPE
-function Mahasiswa(nama, energi) {
-	this.nama = nama;
-	this.energi = energi;
+function satu() {
+	var nama = "alka";
+	console.log(nama);
 }
 
-Mahasiswa.prototype.makan = function (porsi) {
-	this.energi += porsi;
-	console.log(`Halo ${this.nama} energi ${this.energi}`);
-};
+function dua() {
+	console.log(nama);
+}
 
-let alka = new Mahasiswa("alka", 23);
+console.log(nama);
+var nama = "wibi";
+satu();
+dua("Taslim");
+console.log(nama);
