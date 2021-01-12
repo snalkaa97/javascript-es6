@@ -1,31 +1,35 @@
-//2.1 EXECUTION CONTEXT, HOISTING & SCOPE
+//CLOSURE
 
-//creation phase pada global context
-//nama var = undifined
-// function = fn()
-//window = global object
-//this = window
+//lexical scope
 
-//execution phase
-// console.log(sayHello());
-// var nama = "alka";
-// var umur = 23;
+function init() {
+	let nama = "alka"; //local variable
+	function tampilNama() {
+		//inner functuin (closure)
+		console.log(nama); //akses ke parent variable
+	}
+	tampilNama();
+}
+init();
 
-// function sayHello() {
-// 	console.log(`Hello, nama saya ${nama}, saya ${umur} tahun`);
-// }
-
-function satu() {
-	var nama = "alka";
-	console.log(nama);
+function ucapkanSalam(waktu) {
+	return function (nama) {
+		console.log(`Halo ${nama}, Selamat ${waktu}`);
+	};
 }
 
-function dua() {
-	console.log(nama);
-}
+let pagi = ucapkanSalam("pagi"); //ketika dijalankan baru setengah
+console.log(pagi("alka"));
 
-console.log(nama);
-var nama = "wibi";
-satu();
-dua("Taslim");
-console.log(nama);
+let add = function () {
+	let counter = 0;
+	return function () {
+		return ++counter;
+	};
+};
+
+a = add();
+
+console.log(a());
+console.log(a());
+console.log(a());
