@@ -10,11 +10,9 @@ const methodmahasiswa = {
 };
 
 function Mahasiswa(nama, energi) {
-	let mahasiswa = {};
+	let mahasiswa = Object.create(methodmahasiswa);
 	mahasiswa.nama = nama;
 	mahasiswa.energi = energi;
-	mahasiswa.makan = methodmahasiswa.makan;
-	mahasiswa.tidur = methodmahasiswa.tidur;
 
 	return mahasiswa;
 }
