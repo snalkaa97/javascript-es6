@@ -1,35 +1,28 @@
-//CLOSURE
+//ARROW FUNCTION
 
-//lexical scope
-
-function init() {
-	let nama = "alka"; //local variable
-	function tampilNama() {
-		//inner functuin (closure)
-		console.log(nama); //akses ke parent variable
-	}
-	tampilNama();
-}
-init();
-
-function ucapkanSalam(waktu) {
-	return function (nama) {
-		console.log(`Halo ${nama}, Selamat ${waktu}`);
-	};
-}
-
-let pagi = ucapkanSalam("pagi"); //ketika dijalankan baru setengah
-console.log(pagi("alka"));
-
-let add = function () {
-	let counter = 0;
-	return function () {
-		return ++counter;
-	};
+const tampilNama = (nama) => {
+	return console.log(`halo ${nama}`);
 };
 
-a = add();
+console.log(tampilNama("alka"));
 
-console.log(a());
-console.log(a());
-console.log(a());
+//implisit return
+const tampilNama2 = (nama) => {
+	return `halo ${nama}`;
+};
+
+console.log(tampilNama2("alkatiri"));
+
+let mahasiswa = ["alka", "wibi", "taslim"];
+// let jumlahHuruf = mahasiswa.map(function (nama) {
+// 	return nama.length;
+// });
+// console.log(jumlahHuruf);
+// let jumlahHuruf = mahasiswa.map((nama, index) => {
+// 	return nama.length;
+// });
+let jumlahHuruf = mahasiswa.map((nama, index) => {
+	return { nama: nama, jumlahHrf: nama.length };
+});
+
+console.log(jumlahHuruf);
